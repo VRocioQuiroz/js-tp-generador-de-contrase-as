@@ -5,13 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <title>Generador de contraseñas</title>
   </head>
 
@@ -30,7 +24,7 @@
 
       <div class="caja-iconos">
         <button class="btn-icono" id="btn-recargar" title="Generar">
-          <img src="img/girar.png" alt="Icono recargar contraseña" />
+          <img src="img/girar.png" alt="Icono recargar contraseña"/>
         </button>
       </div>
     </section>
@@ -42,53 +36,40 @@
         </div>
 
         <div class="posicion">
-          <div class="longitud">
-            <h4>Longitud</h4>
+            <div class="longitud">
+              <h4>Longitud</h4>
+              
+              <label for="caracteres12"><input type="radio" name="longitud" id="caracteres12" class="longitudCaracteres" value="12" checked /> 12 caracteres</label>
 
-            <label for="caracteres12"
-              ><input
-                type="radio"
-                name="longitud"
-                id="caracteres12"
-                value="12"
-                checked
-              />
-              12 caracteres
-            </label>
+              <label for="caracteres9"><input type="radio" name="longitud" id="caracteres9"   class="longitudCaracteres" value="9" /> 9 caracteres</label>
 
-            <label for="caracteres9"
-              ><input type="radio" name="longitud" id="caracteres9" /> 9
-              caracteres
-            </label>
+              <label for="caracteres6"><input type="radio" name="longitud" id="caracteres6" class="longitudCaracteres"  value="6" /> 6 caracteres </label>
+             
+            </div>
 
-            <label for="caracteres6"
-              ><input type="radio" name="longitud" id="caracteres6" /> 6
-              caracteres
-            </label>
-          </div>
+            <div class="reglas">
+              <h4>Reglas</h4>
 
-          <div class="reglas">
-            <h4>Reglas</h4>
+              <label for="soloLetras" title="Sólo letras mayúsculas y minúsculas"><input type="radio" name="reglas" id="soloLetras" title="Sólo letras mayúsculas y minúsculas" /> Solo letras</label>
 
-            <label for="soloLetras"><input type="radio" name="reglas" id="soloLetras" title="Sólo letras mayúsculas y minúsculas" /> Solo letras</label>
+              <label for="soloNumeros" title="Sólo números del 0 al 9"><input type="radio" name="reglas" id="soloNumeros" title="Sólo números del 0 al 9" /> Solo números</label>
 
-            <label for="soloNumeros"><input type="radio" name="reglas" id="soloNumeros" title="Sólo números del 0 al 9" /> Solo números</label>
+              <label for="todosLosCaracteres" title="Cualquier combinacion de caracteres"><input type="radio" name="reglas" id="todosLosCaracteres" title="Cualquier combinacion de caracteres"/> Todos los caracteres</label>
 
-            <label for="todosLosCaracteres"><input type="radio" name="reglas" id="todosLosCaracteres" title="Cualquier combinacion de caracteres"/> Todos los caracteres</label>
+            </div>
 
-          </div>
+            <div class="caracteres">
+              <h4>Caracteres</h4>
 
-          <div class="caracteres">
-            <h4>Caracteres</h4>
+              <label for="mayusculas"><input type="checkbox" name="mayusculas" id="mayusculas" /> Mayúsculas </label>
 
-            <label for="mayusculas"><input type="checkbox" name="mayusculas" id="mayusculas" /> Mayúsculas </label>
+              <label for="minusculas"> <input type="checkbox" name="minusculas" id="minusculas" /> Minúsculas</label>
 
-            <label for="minusculas"> <input type="checkbox" name="minusculas" id="minusculas" /> Minúsculas</label>
+              <label for="numeros"><input type="checkbox" name="numeros" id="numeros" /> Números</label>
 
-            <label for="numeros"><input type="checkbox" name="numeros" id="numeros" /> Números</label>
+              <label for="simbolos"><input type="checkbox" name="simbolos" id="simbolos" /> Símbolos</label>
 
-            <label for="simbolos"><input type="checkbox" name="simbolos" id="simbolos" /> Símbolos</label>
-          </div>
+            </div>
 
         </div>
 

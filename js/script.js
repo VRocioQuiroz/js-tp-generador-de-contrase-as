@@ -6,11 +6,12 @@ const mayusc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
  //const mayusc = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".split("") TAMBIEN FUNCIONA
 const minusc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ","o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 const num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-const simb = ["@", "#", "%", "&", "$", "*", "!", "?"]
+const simb = ["@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿"]
 
 const $caracteres12 = $("#caracteres12")
 const $caracteres9 = $("#caracteres9")
 const $caracteres6 = $("#caracteres6")
+
 
 const $soloLetras = $("#soloLetras")
 const $soloNumeros = $("#soloNumeros")
@@ -33,7 +34,7 @@ let caracteresSeleccionados = []
 const modificarMayusculas = ()=>{
     
     if($mayusculas.checked){
-       caracteresSeleccionados.push(mayusc)
+       caracteresSeleccionados.push(mayusc) 
         
     }else{
        caracteresSeleccionados.splice(caracteresSeleccionados.indexOf(mayusc),1) 
@@ -92,7 +93,7 @@ $soloLetras.addEventListener("click", ()=>{
     $mayusculas.removeAttribute("disabled")
     $minusculas.removeAttribute("disabled")
 
-   //$mayusculas.setAttribute("checked", "") No funciona siempre (tampoco el removeAttribute)
+   
     $mayusculas.checked = true
     $minusculas.checked = true
 
@@ -145,7 +146,7 @@ $todosLosCaracteres.addEventListener("click", ()=>{
     modificarMinusculas()
     modificarNumeros()
     modificarSimbolos()
-
+   
 })
 
 
@@ -153,47 +154,50 @@ $todosLosCaracteres.addEventListener("click", ()=>{
 
 //FUNCIÓN DE CONTRASEÑA
  
-let contraseñaGenerada = []
+let contraseniaGenerada = []
 
+//caracteresSeleccionados.length
 
-const generarContraseña = ()=>{
+const generarContrasenia = ()=>{
    
-   let contraseña = caracteresSeleccionados.flat(caracteresSeleccionados.length)
-    
-    if ($caracteres12.checked){
-    for (let index = 0; index < 12; index++) {
+   
+
+   let contrasenia = caracteresSeleccionados.flat()     
+   
+   if ($caracteres12.checked){
+        for (let index = 0; index < 12; index++) {
       
-        let seleccionAleatoria = Math.floor(Math.random() * contraseña.length)
+            let seleccionAleatoria = Math.floor(Math.random() * contrasenia.length)
     
-        contraseñaGenerada.push(contraseña[seleccionAleatoria])
-        
+            contraseniaGenerada.push(contrasenia[seleccionAleatoria])
+             
     }}
     if ($caracteres9.checked){
         for (let index = 0; index < 9; index++) {
       
-            let seleccionAleatoria = Math.floor(Math.random() * contraseña.length)
+            let seleccionAleatoria = Math.floor(Math.random() * contrasenia.length)
     
-            contraseñaGenerada.push(contraseña[seleccionAleatoria])
+            contraseniaGenerada.push(contrasenia[seleccionAleatoria])
              
     }}
     if ($caracteres6.checked){
         for (let index = 0; index < 6; index++) {
       
-            let seleccionAleatoria = Math.floor(Math.random() * contraseña.length)
+            let seleccionAleatoria = Math.floor(Math.random() * contrasenia.length)
             
-            contraseñaGenerada.push(contraseña[seleccionAleatoria])
+            contraseniaGenerada.push(contrasenia[seleccionAleatoria])
              
     }}
      
-   let contraseñaFinal =  contraseñaGenerada.join("")
+   let contraseniaFinal =  contraseniaGenerada.join("")
   
-   $texto.innerText = `${contraseñaFinal}`
+   $texto.innerText = `${contraseniaFinal}`
    
-   contraseñaGenerada = []
+   contraseniaGenerada = []
   
 }
 
-$btn.addEventListener("click", generarContraseña)
+$btn.addEventListener("click", generarContrasenia)
 
 /*----------------------------------------------------------------------------------*/
 
@@ -206,8 +210,19 @@ $copiar.addEventListener("click", ()=>{
 
 //FUNCIÓN GENERAR NUEVA CONTRASEÑA
 
-$recargar.addEventListener("click", generarContraseña)
+$recargar.addEventListener("click", generarContrasenia)
 
 /*----------------------------------------------------------------------------------*/
 
 $todosLosCaracteres.click()
+
+//ALERT
+
+const alerta = ()=>{
+    if(!$mayusculas.checked && !$minusculas.checked && !$numeros.checked && !$simbolos.checked){
+        return alert("Debes seleccionar al menos un tipo de caracter")
+    }
+}
+
+$btn.addEventListener("click", alerta)
+

@@ -1,128 +1,240 @@
 
 body{
-    background-image: url('../img/password.png');
-    background-size: cover;
-    position: relative;
+  background-image: url('../img/password.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
     
- }
+}
  
- .posicion-seccion{
-     display: flex;
-     justify-content: center;
-     margin-top: 15px;
+.posicion-seccion{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
      
- }
+}
  
- .caja-texto{
-     width: 500px;
-     height:100px; 
-     background-color: #C2DED1 ;
-     border-radius: 15px;
+.caja-texto{
+  width: 500px;
+  height:100px; 
+  background-color: #C2DED1 ;
+  border-radius: 15px;
    
- }
+}
  
- .caja-texto p{
-     width: 90%;
-     height: 70%;
-     margin: 20px 0 12px 30px;
-     border: none;
-     outline: none;
-     background-color:#C2DED1  ;
-     font-size: 40px;
+.caja-texto p{
+  width: 90%;
+  height: 70%;
+  margin: 20px 0 12px 30px;
+  border: none;
+  outline: none;
+  background-color:#C2DED1  ;
+  font-size: 40px;
  
- }
+}
  
  
- .btn-icono{
-     border: none;
-     background-color: #C2DED1;
-     border-radius: 15px;
-     display: flex;
-     justify-content: center;
-     cursor: pointer;
- }
+.btn-icono{
+  border: none;
+  background-color: #C2DED1;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
  
- .caja-iconos{
+.caja-iconos{
   display: flex;
   justify-content: right;
   width:90px;
   margin-left: 10px;
   
- } 
+} 
  
- img{
-     width: 50px;
-     height: 50px;
-     padding: 25px 15px 0 20px ;
+img{
+  width: 50px;
+  height: 50px;
+  padding: 25px 15px 0 20px ;
      
- }
+}
  
- .caja-opciones{
-     width: 700px;
-     height: 500px;
-     background-color: #C2DED1;
-     border-radius: 15px;
+.caja-opciones{
+  width: 700px;
+  height: 500px;
+  background-color: #C2DED1;
+  border-radius: 15px;
    
- }
+}
  
- .longitud, .reglas, .caracteres{
-     display: flex;
-     flex-direction: column;
- }
+.longitud, .reglas, .caracteres{
+  display: flex;
+  flex-direction: column;
+}
  
- .posicion{
-     display: flex;
-     justify-content: space-around;
-     margin-right: 30px;
- }
+.posicion{
+  display: flex;
+  justify-content: space-around;
+  margin-right: 30px;
+}
  
- h2{
-     padding-left: 25px;
-     padding-top: 20px;
-     color: #161D6F ;
-     font-size: 40px;
-     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-     font-weight: bold;
- }
+h2{
+  padding-left: 25px;
+  padding-top: 20px;
+  color: #161D6F ;
+  font-size: 40px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
  
- h4{
-     font-size: 25px;
-     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-     color: #1E2A78;
- }
+h4{
+  font-size: 25px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #1E2A78;
+}
  
- label{
+label{
      font-size: 20px;
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
      margin-top: 10px;
- }
+}
  
- #btn{
- background-color: #596E79;
- color: white;
- font-weight: bold;
- width: 250px;
- border: none;
- border-radius: 15px;
- font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
- font-size: 20px;
- font-weight: bolder;
- box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px 0px inset;
- cursor: pointer;
- }
+#btn{
+  background-color: #596E79;
+  color: white;
+  font-weight: bold;
+  width: 250px;
+  border: none;
+  border-radius: 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px 0px inset;
+  cursor: pointer;
+}
  
- button:active{
-     transform: scale(0.95);
- }
+button:active{
+  transform: scale(0.95);
+}
  
- .boton{
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;                          
- }
+.boton{
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;                          
+}
  
- .caja-opciones, .caja-texto, .btn-icono{
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;  
+.caja-opciones, .caja-texto, .btn-icono{
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;  
  
- }
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:527px){
+
+    .caja-texto{
+        width:80%;
+    }
+    .caja-texto p{
+        margin-top: 35px;
+        font-size: 200%;
+        height: 60%;
+    }
+
+    .caja-iconos{
+        width: 15%;
+        margin-left: 5px;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    .caja-opciones{
+        height: 800px; 
+       
+    }
+
+    h2{
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .posicion{
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        padding-left: 20px;
+    }
+
+    .longitud, .reglas, .caracteres{
+        padding-top: 5px;
+    }
+
+    h4{
+        margin-bottom: 2px;
+    }
+
+    .boton{
+        margin-top: 40px;
+    }
+}
+
+@media(min-width:528px) and (max-width:555px){
+  .caja-texto p{
+    margin-left: 15px;
+  }
+}
+
+@media(min-width:525px) and (max-width:545px){
+  h2{
+    padding-left:15px;
+  }
+}
+
+@media(max-width:392px){
+    .caja-texto p{
+        margin-left: 10px;
+        margin-top: 40px; 
+        font-size: 150%;
+    }
+       
+}
+
+@media(min-width:299px) and (max-width:330px){
+    h2{padding-left: 8px;
+    }
+}
+
+@media(max-width:298px){
+    h2{
+        font-size:35px;
+        padding-left: 10px;
+    }
+}
+
+
+@media(max-width:301px){
+    .caja-texto{
+        width:70%;
+    }
+ 
+    .caja-texto p{
+        margin-left: 5px;
+        margin-top:20px;
+        padding-top: 15px;
+        font-size: 140%;
+    }
+
+    .caja-iconos{
+        width: 3%;
+        margin-left: 40px;
+    }
+
+    img{
+        width: 70%;
+    }
+
+}
+
