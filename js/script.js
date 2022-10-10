@@ -6,8 +6,8 @@ const $$ = (selector) => document.querySelectorAll(selector)
 
 const mayusc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y","Z"]
 const minusc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ","o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-const num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9","0", "1", "2", "3", "4", "5", "6", "7", "8", "9","0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-const simb = ["@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿","@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿","@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿"]
+const num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+const simb = ["@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿", "/", "="]
 
 
 const $$longitudCaracteres = $$(".longitudCaracteres")
@@ -25,6 +25,7 @@ const $texto = $("#texto")
 const $btn = $("#btn")
 const $copiar = $("#btn-copiar")
 const $recargar = $("#btn-recargar")
+
 
 //FUNCIONES DE CARACTERES
 
@@ -148,41 +149,60 @@ $todosLosCaracteres.addEventListener("click", ()=>{
 
 })
 
-
 /*----------------------------------------------------------------------------------*/
 
-//FUNCIÓN DE CONTRASEÑA
+//FUNCIÓN DE CONTRASEÑA (bucles)
+
+let seleccionAleatoria = []
 
 
-let contraseniaGenerada = []
+const random =()=>{
+
+   let iteracion = 0
+   
+   if(caracteresSeleccionados.length === 4) iteracion = 3;
+
+   if(caracteresSeleccionados.length === 3) iteracion = 4;
+   
+   if(caracteresSeleccionados.length === 2) iteracion = 6;
+   
+   if(caracteresSeleccionados.length === 1) iteracion = 12;
+   
+
+   for (let i = 0; i < iteracion ; i++) { 
+       for (const arreglo of caracteresSeleccionados){
+          seleccion = Math.floor(Math.random() * arreglo.length)
+          seleccionAleatoria.push(arreglo[seleccion])
+          
+        }    
+    }
+}
+
+
+let contraseniaGenerada = [] 
+
 
 const generarContrasenia = ()=>{
 
-
-    let contrasenia = caracteresSeleccionados.flat()
+   random()
 
     for (const longitudEspecifica of $$longitudCaracteres) {
 
         if (longitudEspecifica.checked){
 
-            for (let index = 0; index < longitudEspecifica.value; index++) {
-
-                let seleccionAleatoria = Math.floor(Math.random() * contrasenia.length )
-                
-                contraseniaGenerada.push(contrasenia[seleccionAleatoria])
-            }
+            let longitudContrasenia = seleccionAleatoria.splice(0,longitudEspecifica.value)
+        
+            contraseniaGenerada.push(longitudContrasenia.join(""))
+     
         }
     }
 
-
-    let contraseniaFinal =  contraseniaGenerada.join("")
-
-    $texto.innerText = `${contraseniaFinal}`
-
+    $texto.innerText = `${contraseniaGenerada}`
+    
+    seleccionAleatoria = []
     contraseniaGenerada = []
 
 }
-
 
 $btn.addEventListener("click", generarContrasenia)
 
@@ -196,14 +216,9 @@ $copiar.addEventListener("click", ()=>{
     navigator.clipboard.writeText(copiarTexto)
 })
 
-//FUNCIÓN GENERAR NUEVA CONTRASEÑA
+//FUNCIÓN GENERAR NUEVA CONTRASEÑA (refrescar)
 
 $recargar.addEventListener("click", generarContrasenia)
-
-
-/*----------------------------------------------------------------------------------*/
-
-$todosLosCaracteres.click()
 
 
 //ALERT
@@ -216,4 +231,6 @@ const alerta = ()=>{
 
 $btn.addEventListener("click", alerta)
 
+/*----------------------------------------------------------------------------------*/
 
+$todosLosCaracteres.click()
