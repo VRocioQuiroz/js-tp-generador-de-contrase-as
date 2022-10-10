@@ -6,8 +6,8 @@ const $$ = (selector) => document.querySelectorAll(selector)
 
 const mayusc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y","Z"]
 const minusc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ","o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-const num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-const simb = ["@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿"]
+const num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9","0", "1", "2", "3", "4", "5", "6", "7", "8", "9","0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+const simb = ["@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿","@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿","@", "#", "%", "&", "$", "*", "!", "?", "¡", "¿"]
 
 
 const $$longitudCaracteres = $$(".longitudCaracteres")
@@ -31,26 +31,26 @@ const $recargar = $("#btn-recargar")
 let caracteresSeleccionados = []
 
 const modificarMayusculas = ()=>{
-    
+
     if($mayusculas.checked){
-       caracteresSeleccionados.push(mayusc) 
-        
+       caracteresSeleccionados.push(mayusc)
+
     }else{
-       caracteresSeleccionados.splice(caracteresSeleccionados.indexOf(mayusc),1) 
-    } 
+       caracteresSeleccionados.splice(caracteresSeleccionados.indexOf(mayusc),1)
+    }
 }
 
-$mayusculas.addEventListener("click", modificarMayusculas) 
+$mayusculas.addEventListener("click", modificarMayusculas)
 
 /*----------------------------------------------------------------------------------*/
 
 
 const modificarMinusculas = ()=>{
 
-    if($minusculas.checked){   
-       caracteresSeleccionados.push(minusc)  
+    if($minusculas.checked){
+       caracteresSeleccionados.push(minusc)
     }else{
-      caracteresSeleccionados.splice(caracteresSeleccionados.indexOf(minusc), 1) 
+      caracteresSeleccionados.splice(caracteresSeleccionados.indexOf(minusc), 1)
     }
 }
 
@@ -59,7 +59,7 @@ $minusculas.addEventListener("click", modificarMinusculas)
 /*----------------------------------------------------------------------------------*/
 
 const modificarNumeros = ()=>{
-  
+
     if($numeros.checked){
         caracteresSeleccionados.push(num)
     }else{
@@ -72,7 +72,7 @@ $numeros.addEventListener("click", modificarNumeros)
 /*----------------------------------------------------------------------------------*/
 
 const modificarSimbolos = ()=>{
- 
+
     if($simbolos.checked){
         caracteresSeleccionados.push(simb)
     }else{
@@ -89,7 +89,7 @@ $simbolos.addEventListener("click", modificarSimbolos)
 $soloLetras.addEventListener("click", ()=>{
 
     caracteresSeleccionados = []
-    
+
     $mayusculas.removeAttribute("disabled")
     $minusculas.removeAttribute("disabled")
 
@@ -108,27 +108,27 @@ $soloLetras.addEventListener("click", ()=>{
 
 
 $soloNumeros.addEventListener("click", ()=>{
-   
+
     caracteresSeleccionados = []
 
     $numeros.removeAttribute("disabled")
     $numeros.checked = true
-    
+
     $mayusculas.checked = false
     $minusculas.checked = false
     $simbolos.checked = false
-    
+
     $mayusculas.setAttribute("disabled", "")
     $minusculas.setAttribute("disabled", "")
     $simbolos.setAttribute("disabled", "")
-    
+
     modificarNumeros()
-    
+
 })
 
 
 $todosLosCaracteres.addEventListener("click", ()=>{
-     
+
     caracteresSeleccionados = []
 
     $mayusculas.removeAttribute("disabled")
@@ -145,7 +145,7 @@ $todosLosCaracteres.addEventListener("click", ()=>{
     modificarMinusculas()
     modificarNumeros()
     modificarSimbolos()
-   
+
 })
 
 
@@ -153,23 +153,22 @@ $todosLosCaracteres.addEventListener("click", ()=>{
 
 //FUNCIÓN DE CONTRASEÑA
 
- 
+
 let contraseniaGenerada = []
 
 const generarContrasenia = ()=>{
-  
-    
-    let contrasenia = caracteresSeleccionados.flat() 
+
+
+    let contrasenia = caracteresSeleccionados.flat()
 
     for (const longitudEspecifica of $$longitudCaracteres) {
-       console.log(longitudEspecifica)
 
         if (longitudEspecifica.checked){
-            console.log(longitudEspecifica.value)  
+
             for (let index = 0; index < longitudEspecifica.value; index++) {
-              
-                let seleccionAleatoria = Math.floor(Math.random() * contrasenia.length)
-                         
+
+                let seleccionAleatoria = Math.floor(Math.random() * contrasenia.length )
+                
                 contraseniaGenerada.push(contrasenia[seleccionAleatoria])
             }
         }
@@ -177,15 +176,16 @@ const generarContrasenia = ()=>{
 
 
     let contraseniaFinal =  contraseniaGenerada.join("")
-   
+
     $texto.innerText = `${contraseniaFinal}`
-    
+
     contraseniaGenerada = []
-   
+
 }
- 
+
 
 $btn.addEventListener("click", generarContrasenia)
+
 
 /*----------------------------------------------------------------------------------*/
 
